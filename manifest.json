@@ -1,0 +1,23 @@
+{
+    "name": "فروشگاه ظروف چینی لوکس",
+    "short_name": "ظروف چینی",
+    "description": "فروشگاه آنلاین ظروف چینی لوکس با بهترین کیفیت و قیمت",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fdf6f0",
+    "theme_color": "#d4af37",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["shopping", "business"]
+}
