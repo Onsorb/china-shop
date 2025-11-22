@@ -1,4 +1,4 @@
-// فروشگاه ظروف چینی لوکس - JavaScript کامل
+
 class ChinaShop {
   constructor() {
       this.products = [];
@@ -16,7 +16,7 @@ class ChinaShop {
   }
 
   initializeApp() {
-      // مخفی کردن loading screen بعد از بارگذاری
+
       window.addEventListener('load', () => {
           setTimeout(() => {
               this.hideLoadingScreen();
@@ -24,7 +24,7 @@ class ChinaShop {
           }, 1000);
       });
 
-      // مدیریت اسکرول
+
       window.addEventListener('scroll', () => {
           this.handleScroll();
       });
@@ -65,42 +65,41 @@ class ChinaShop {
   }
 
   setupEventListeners() {
-      // اسکرول به بالا
+   
       document.getElementById('scrollToTop')?.addEventListener('click', () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // منوی موبایل
+     
       document.getElementById('mobileMenuBtn')?.addEventListener('click', this.toggleMobileMenu);
 
-      // اسلایدر هیرو
+      
       this.setupHeroSlider();
 
-      // جستجو
+  
       this.setupSearch();
 
-      // سبد خرید
+
       this.setupCart();
 
-      // علاقه‌مندی‌ها
+    
       this.setupWishlist();
 
-      // فیلتر محصولات
+    
       this.setupProductFilters();
 
-      // تایمر شمارش معکوس
+
       this.setupCountdownTimer();
 
-      // فرم خبرنامه
       this.setupNewsletter();
 
-      // چت شناور
+      
       this.setupFloatingChat();
 
-      // Modal محصولات
+   
       this.setupProductModal();
 
-      // کلیک روی دسته‌بندی‌ها
+    
       this.setupCategoryClicks();
   }
 
@@ -158,12 +157,12 @@ class ChinaShop {
           });
       });
 
-      // هاور روی اسلایدر
+
       const slider = document.querySelector('.hero-slider');
       slider?.addEventListener('mouseenter', stopSlider);
       slider?.addEventListener('mouseleave', startSlider);
 
-      // شروع اسلایدر
+    
       startSlider();
   }
 
@@ -205,7 +204,7 @@ class ChinaShop {
           }
       });
 
-      // کلیک خارج برای بستن suggestions
+     
       document.addEventListener('click', (e) => {
           if (!searchInput?.contains(e.target) && !suggestions?.contains(e.target)) {
               this.hideSearchSuggestions();
@@ -240,7 +239,7 @@ class ChinaShop {
   performSearch(query) {
       if (query.trim()) {
           alert(`جستجو برای: ${query}`);
-          // در حالت واقعی اینجا کاربر به صفحه نتایج هدایت می‌شود
+        
           this.hideSearchSuggestions();
       }
   }
@@ -262,7 +261,7 @@ class ChinaShop {
           this.checkout();
       });
 
-      // بستن سبد خرید با کلیک خارج
+  
       document.addEventListener('click', (e) => {
           const cartSidebar = document.getElementById('cartSidebar');
           if (!cartSidebar?.contains(e.target) && !cartBtn?.contains(e.target)) {
@@ -382,7 +381,7 @@ class ChinaShop {
 
       const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       alert(`در حال هدایت به صفحه پرداخت...\nمبلغ قابل پرداخت: ${this.formatPrice(total)} تومان`);
-      // در حالت واقعی اینجا کاربر به صفحه پرداخت هدایت می‌شود
+
   }
 
   setupWishlist() {
@@ -394,7 +393,7 @@ class ChinaShop {
   }
 
   toggleWishlist() {
-      // در حالت واقعی اینجا صفحه علاقه‌مندی‌ها نمایش داده می‌شود
+   
       alert('صفحه علاقه‌مندی‌ها');
   }
 
@@ -422,9 +421,9 @@ class ChinaShop {
       
       filterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
-              // حذف کلاس active از همه دکمه‌ها
+  
               filterBtns.forEach(b => b.classList.remove('active'));
-              // اضافه کردن کلاس active به دکمه کلیک شده
+      
               btn.classList.add('active');
               
               const filter = btn.dataset.filter;
@@ -511,7 +510,7 @@ class ChinaShop {
           chatOptions.style.display = chatOptions.style.display === 'flex' ? 'none' : 'flex';
       });
 
-      // بستن چت آپشن با کلیک خارج
+    
       document.addEventListener('click', (e) => {
           if (!chatBtn?.contains(e.target) && !chatOptions?.contains(e.target)) {
               chatOptions.style.display = 'none';
@@ -561,7 +560,7 @@ class ChinaShop {
               const category = card.dataset.category;
               this.filterProducts(category);
               
-              // اسکرول به بخش محصولات
+          
               document.getElementById('products')?.scrollIntoView({ 
                   behavior: 'smooth' 
               });
@@ -580,14 +579,14 @@ class ChinaShop {
           threshold: 0.1
       });
 
-      // مشاهده المنت‌ها برای انیمیشن
+
       document.querySelectorAll('.category-card, .product-card, .feature-card').forEach(el => {
           observer.observe(el);
       });
   }
 
   loadProducts() {
-      // داده‌های نمونه محصولات
+
       this.products = [
           {
               id: 1,
@@ -703,7 +702,7 @@ class ChinaShop {
           productsGrid.appendChild(productCard);
       });
 
-      // اضافه کردن event listeners به دکمه‌های محصولات
+
       this.attachProductEventListeners();
   }
 
@@ -791,7 +790,7 @@ class ChinaShop {
   }
 
   attachProductEventListeners() {
-      // event listeners برای دکمه‌های مشاهده سریع
+  
       document.querySelectorAll('.quick-view-btn').forEach(btn => {
           btn.addEventListener('click', (e) => {
               e.stopPropagation();
@@ -806,15 +805,14 @@ class ChinaShop {
   }
 
   getProductIdFromCard(productCard) {
-      // این تابع ID محصول را از کارت محصول استخراج می‌کند
-      // در پیاده‌سازی واقعی، این اطلاعات در dataset المنت ذخیره می‌شود
+
+   
       const productName = productCard.querySelector('.product-title').textContent;
       const product = this.products.find(p => p.name === productName);
       return product ? product.id : null;
   }
 
   showAddToCartAnimation() {
-      // انیمیشن ساده برای تأیید افزودن به سبد
       const animation = document.createElement('div');
       animation.style.cssText = `
           position: fixed;
@@ -860,10 +858,10 @@ class ChinaShop {
   }
 }
 
-// راه‌اندازی اپلیکیشن
+
 const chinaShop = new ChinaShop();
 
-// اضافه کردن استایل برای انیمیشن fadeInOut
+
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fadeInOut {
@@ -874,25 +872,23 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// توابع global برای استفاده در onclick
+
 window.chinaShop = chinaShop;
 
-// تابع برای بستن سبد خرید
 function closeCart() {
   chinaShop.closeCart();
 }
 
-// مدیریت خطاهای全局
 window.addEventListener('error', (e) => {
   console.error('خطا در اپلیکیشن:', e.error);
 });
 
-// مدیریت rejection promise
+
 window.addEventListener('unhandledrejection', (e) => {
   console.error('Promise rejection:', e.reason);
 });
 
-// Service Worker برای PWA (اختیاری)
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
